@@ -4,17 +4,14 @@ import itn from './ItemNavigation.module.css'
 interface ItemNavigationProps {
   img: string,
   title: string,
-  id: number
+  id: number,
+  hoverBlock: any
 }
 
-const ItemNavigation: FC<ItemNavigationProps> = ({ id, img, title }) => {
-
-  const hoverBlock = (id: number) => {
-    console.log(id)
-  }
+const ItemNavigation: FC<ItemNavigationProps> = ({ id, img, title, hoverBlock }) => {
 
   return ( // Елеменn навигации Cars
-    <li className={itn.wrapper} onMouseMove={() => hoverBlock(id)}>
+    <li className={itn.wrapper} onMouseOver={() => hoverBlock(id)}>
       <div className={itn.blockImg}>
         <img src={img} title="img" />
       </div>

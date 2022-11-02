@@ -17,13 +17,17 @@ interface ICarContentModel {
 const CarContentModel = () => {
   const [familyRover, setFamilyRover] = useState<ICarContentModel[]>(arrMenuCarContent)
 
+  const hoverBlock = (id: number) => {
+    console.log(id)
+  }
+
   return (
     <div className={cc.wrapper}>
       <div>
         <h4 className={cc.title}>СЕМЕЙСТВО RANGE ROVER</h4>
         <ul>
           {familyRover.map(elem =>
-            <ItemNavigation key={elem.id} {...elem} />
+            <ItemNavigation key={elem.id} {...elem} hoverBlock={hoverBlock}/>
           )}
         </ul>
 

@@ -2,22 +2,12 @@ import React, { useState } from 'react'
 import { BsChevronRight } from 'react-icons/bs'
 import { FaCarSide } from 'react-icons/fa'
 import bw from './BlockWindow.module.css'
-import { BlockImg } from '../../../Infa-arr/InfaArr'
+import ItemBlockWindow from './ItemBlockWindow/ItemBlockWindow'
 
 
-interface ICarBlockmg {
-  id: number,
-  img: string,
-  title: string,
-  consumption?: string,
-  emissions?: string,
-  places?: string,
-  tank?: string,
-}
+
 
 const BlockWindow = () => {
-
-  const [modelHover, setModelHover] = useState<ICarBlockmg[]>(BlockImg)
 
   return (
     <div className={bw.blockWindow}>
@@ -44,22 +34,8 @@ const BlockWindow = () => {
       <div className={bw.wrapperImg}>
         {/*  фото модели */}
         <div className={bw.wrapperElemImg}>
-          <div className={bw.blockImg}>
-
-            {modelHover.map(elem =>
-              <div key={elem.id}>
-                <img src={elem.img} title="img" />
-
-                <ul className={bw.blockInformationImg}>
-
-                  <li className={bw.elemInformation}>От {elem.consumption} л/100 км</li>
-                  <li className={bw.elemInformation}>От {elem.emissions} г/км</li>
-                  <li className={bw.elemInformation}>{elem.places} мест </li>
-                  <li className={bw.elemInformation}>{elem.tank} ЛИТРЫ</li>
-                </ul>
-              </div>
-            )}
-          </div>
+          <ItemBlockWindow id={0} addElem={undefined} text={''} />
+        
         </div>
 
         <div className={bw.footnoteImg}>
